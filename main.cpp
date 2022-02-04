@@ -10,9 +10,9 @@ void run(std::string data) {
 	Scanner scanner = Scanner(data);
 	std::vector<Token> tokens = scanner.scan_tokens();
 
-	// for (int i = 0; i < tokens.size(); i ++) {
-	// 	std::cout << tokens[i] << "\n";
-	// }
+	for (int i = 0; i < tokens.size(); i ++) {
+		tokens[i].print();
+	}
 }
 
 void run_prompt() {
