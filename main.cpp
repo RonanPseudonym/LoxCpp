@@ -52,6 +52,8 @@ void error(int line, std::string message) {
 }
 
 int main(int argc, char *argv[]) {
+	setup_kwd_names();
+
 	if (argc > 2) {
 		throw std::invalid_argument("Too many arguments specified");
 	} else if (argc == 2) {
