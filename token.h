@@ -80,7 +80,7 @@ class Token {
 	private:
 		TokenType   type;
 		std::string lexeme;
-		Object      literal; // Fix this later
+		Object      literal;
 		int         line;
 
 	public:

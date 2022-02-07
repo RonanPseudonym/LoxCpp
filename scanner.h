@@ -20,7 +20,7 @@ class Scanner {
 			return source[current ++];
 		}
 
-		void add_token_raw(TokenType type, Object literal) { // Fix char literal later
+		void add_token_raw(TokenType type, Object literal) {
 			std::string text = source.substr(start, current - start);
 			tokens.push_back(Token(type, text, literal, line));
 		}
@@ -49,7 +49,7 @@ class Scanner {
 			}
 
 			if (is_at_end()) {
-				// Error unterminated string
+				Error("Unterminated string", line);
 				return;
 			}
 
@@ -93,7 +93,7 @@ class Scanner {
 			TokenType type;
 			
 			if (keywords.count(text))
-				type = keywords.at(text); // fix in a sec
+				type = keywords.at(text);
 			else
 				type = TokenType::IDENTIFIER;
 
@@ -153,7 +153,7 @@ class Scanner {
 					else if (is_alpha(c))
 						identifier();
 					else
-						// Error unexpected character
+						Error("Forign character outside of string", line);
 
 					break;
 			}

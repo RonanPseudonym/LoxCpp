@@ -4,8 +4,6 @@
 
 #include "scanner.h"
 
-static bool had_error = false;
-
 void run(std::string data) {
 	Scanner scanner = Scanner(data);
 	std::vector<Token> tokens = scanner.scan_tokens();
@@ -28,7 +26,7 @@ void run_prompt() {
 		run(line);
 		line = "";
 
-		if (had_error) {
+		if (error) {
 			return;
 		}
 	}
@@ -42,14 +40,14 @@ void run_file(std::string file_name) {
    	run(data);
 }
 
-void report(int line, std::string where, std::string message) {
-	std::cout << "[line " << line << "] Error" << where << ": " << message;
-}
+// void report(int line, std::string where, std::string message) {
+// 	std::cout << "[line " << line << "] Error" << where << ": " << message;
+// }
 
-void error(int line, std::string message) {
-	report(line, "", message);
-	had_error = true;
-}
+// void error(int line, std::string message) {
+// 	report(line, "", message);
+// 	had_error = true;
+// }
 
 int main(int argc, char *argv[]) {
 	setup_kwd_names();
