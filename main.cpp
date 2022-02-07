@@ -20,7 +20,7 @@ void run_prompt() {
 
 	for (;;) {
 		std::cout << "> ";
-		std::cin >> line;
+		std::getline(std::cin, line);
 
 		if (line.empty())
 			break;
